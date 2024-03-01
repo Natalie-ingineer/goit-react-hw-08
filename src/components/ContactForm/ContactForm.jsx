@@ -24,19 +24,16 @@ export default function ContactForm() {
 
   const contacts = useSelector(selectContacts);
 
-  // const handleSubmit = (values, { resetForm }) => {
-  //   dispatch(addContact(values));
-  //   resetForm();
-  // };
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(addContact(values));
+    resetForm();
+  };
 
   return (
     <Formik
       initialValues={{ name: "", phone: "" }}
       validationSchema={userSchema}
-      onSubmit={(contacts, actions) => {
-        dispatch(addContact({ id: nanoid(), ...contacts }));
-        actions.resetForm();
-      }}
+      onSubmit={handleSubmit}
     >
       <Form className={css.form}>
         <div className={css.formWrap}>
