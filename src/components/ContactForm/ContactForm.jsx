@@ -12,7 +12,7 @@ const userSchema = Yup.object().shape({
     .min(3, "Name must be at least 3 symb long")
     .max(50, "Name to long")
     .required("Please, fill in the field!"),
-  phone: Yup.number()
+  number: Yup.number()
     .min(0, "Number must be at least 3 symb long")
     .required("Please, fill in the field!"),
 });
@@ -31,7 +31,7 @@ export default function ContactForm() {
 
   return (
     <Formik
-      initialValues={{ name: "", phone: "" }}
+      initialValues={{ name: "", number: "" }}
       validationSchema={userSchema}
       onSubmit={handleSubmit}
     >
@@ -50,15 +50,15 @@ export default function ContactForm() {
         </div>
         <div className={css.formWrap}>
           <label className={css.description} htmlFor={numberFieldId}>
-            Phone
+            Number
           </label>
           <Field
             className={css.fieldInput}
             type="number"
-            name="phone"
+            name="number"
             id={numberFieldId}
           ></Field>
-          <ErrorMessage className={css.error} name="phone" component="span" />
+          <ErrorMessage className={css.error} name="number" component="span" />
         </div>
         <button className={css.button} type="submit">
           Add user
