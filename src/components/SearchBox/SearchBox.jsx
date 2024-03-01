@@ -1,8 +1,8 @@
 import css from "./SearchBox.module.css";
 import { useId } from "react";
-import { nameFilter } from "../../redux/filtersSlice";
+import { nameFilter } from "../../redux/contacts/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectStatusFilter } from "../../redux/selectors";
+import { selectStatusFilter } from "../../redux/contacts/selectors";
 
 export default function SearchBox() {
   const usernameFieldIdsearch = useId();
