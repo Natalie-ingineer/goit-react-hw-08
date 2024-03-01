@@ -50,6 +50,5 @@ const contactsSlice = createSlice({
         state.error = null;
       }),
 });
-// export { fetchContacts, addContact, deleteContact } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;
