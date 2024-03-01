@@ -32,13 +32,11 @@ export default function Contacts() {
       {loading && <p>Loading...</p>}
       {error && <p className="notification">Oops, ERROR 😨</p>}
 
-      {items.length > 0 && JSON.stringify(items, null, 2) && (
-        <>
-          <ContactForm />
-          <SearchBox />
-          <ContactList />
-        </>
-      )}
+      <>
+        <ContactForm />
+        <SearchBox />
+        <ContactList />
+      </>
     </>
   );
 }

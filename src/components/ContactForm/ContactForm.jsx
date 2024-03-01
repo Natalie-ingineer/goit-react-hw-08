@@ -22,18 +22,21 @@ export default function ContactForm() {
   const numberFieldId = useId();
   const dispatch = useDispatch();
 
-  const items = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts);
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
-    resetForm();
-  };
+  // const handleSubmit = (values, { resetForm }) => {
+  //   dispatch(addContact(values));
+  //   resetForm();
+  // };
 
   return (
     <Formik
       initialValues={{ name: "", phone: "" }}
       validationSchema={userSchema}
-      onSubmit={handleSubmit}
+      onSubmit={(contacts, actions) => {
+        dispatch(addContact({ id: nanoid(), ...contacts }));
+        actions.resetForm();
+      }}
     >
       <Form className={css.form}>
         <div className={css.formWrap}>
