@@ -2,7 +2,7 @@ import SearchBox from "../components/SearchBox/SearchBox";
 import ContactForm from "../components/ContactForm/ContactForm";
 import ContactList from "../components/ContactList/ContactList";
 import { Helmet } from "react-helmet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../redux/contacts/operations";
 import {
@@ -22,6 +22,10 @@ export default function Contacts() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("users-phonebook", JSON.stringify([...items]));
+  // }, [items]);
 
   return (
     <>
