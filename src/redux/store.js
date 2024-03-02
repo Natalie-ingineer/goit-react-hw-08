@@ -21,19 +21,19 @@ const persistConfig = {
   whitelist: ["auth", "contacts"], // List of reducers to persist
 };
 
-const generateDefaultContacts = () => {
-  const defaultContacts = [
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ];
+// const generateDefaultContacts = () => {
+//   const defaultContacts = [
+//     { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+//     { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+//     { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+//     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+//   ];
 
-  // Збереження початкових контактів у локальному сховищі
-  storage.setItem("root", JSON.stringify(defaultContacts));
+//   // Збереження початкових контактів у локальному сховищі
+//   storage.setItem("root", JSON.stringify(defaultContacts));
 
-  return defaultContacts;
-};
+//   return defaultContacts;
+// };
 
 // Persisting token field from auth slice to localstorage
 // const authPersistConfig = {
@@ -60,7 +60,7 @@ const rootReduser = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReduser);
-generateDefaultContacts();
+// generateDefaultContacts();
 
 export const store = configureStore({
   reducer: persistedReducer,
