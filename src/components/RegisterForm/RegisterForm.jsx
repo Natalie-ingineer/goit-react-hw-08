@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
-import { nanoid } from "nanoid";
 
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
