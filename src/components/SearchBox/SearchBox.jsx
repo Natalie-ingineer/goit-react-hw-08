@@ -1,17 +1,18 @@
 import css from "./SearchBox.module.css";
-import { useId } from "react";
+import { useId, useState } from "react";
 import { nameFilter, numberFilter } from "../../redux/contacts/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectFilterName,
-  selectFilterNumber,
-} from "../../redux/contacts/selectors";
 
 export default function SearchBox() {
   const usernameFieldIdsearch = useId();
   const dispatch = useDispatch();
-  const filterName = useSelector(selectFilterName);
-  const filterNumber = useSelector(selectFilterNumber);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    dispatch(nameFilter(e.target.value));
+    dispatch(numberFilter(e.target.value));
+  };
 
   return (
     <div className={css.btnWrap}>
@@ -20,10 +21,9 @@ export default function SearchBox() {
       </label>
       <input
         type="text"
-        value={(filterName, filterNumber)}
-        onChange={(e) => {
-          dispatch(nameFilter(e.target.value) || numberFilter(e.target.value));
-        }}
+        value={searchTerm}
+        onChange={handleSearchChange}
+        placeholder="Search by name and number"
         id={usernameFieldIdsearch}
       />
     </div>

@@ -2,16 +2,21 @@ import css from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact, updateContact } from "../../redux/contacts/operations";
-import { selectVisibleContacts } from "../../redux/contacts/selectors";
+import {
+  selectContacts,
+  selectVisibleContacts,
+} from "../../redux/contacts/selectors";
 
 export default function ContactList() {
   const dispatch = useDispatch();
-  const contactsFilter = useSelector(selectVisibleContacts);
-  console.log(contactsFilter);
+  // const contactsFilter = useSelector(selectVisibleContacts);
+  // console.log(contactsFilter);
+
+  const contacts = useSelector(selectContacts);
 
   return (
     <ul className={css.listContacts}>
-      {contactsFilter.map((contact) => (
+      {contacts.map((contact) => (
         <Contact
           key={contact.id}
           userId={contact.id}

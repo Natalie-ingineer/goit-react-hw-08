@@ -13,12 +13,12 @@ export const selectFilterNumber = (state) => state.filters.filters.number;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilterName, selectFilterNumber],
   (contacts, filterName, filterNumber) => {
-    contacts.filter((contact) => {
-      const NameFiltered = contact.name
+    return contacts.filter((contact) => {
+      const nameFiltered = contact.name
         .toLowerCase()
         .includes(filterName.toLowerCase());
-      const NumberFiltered = contact.number.includes(filterNumber);
-      return NameFiltered || NumberFiltered;
+      const numberFiltered = contact.number.includes(filterNumber);
+      return nameFiltered && numberFiltered;
     });
   }
 );
