@@ -22,14 +22,6 @@ export default function ContactForm() {
   const numberFieldId = useId();
   const dispatch = useDispatch();
 
-  // const contacts = useSelector((state) => state.contacts.items);
-  // console.log(contacts);
-
-  // const handleSubmit = (values, { resetForm }) => {
-  //   dispatch(addContact({ values }));
-  //   resetForm();
-  // };
-
   return (
     <Formik
       initialValues={{ name: "", number: "" }}

@@ -1,9 +1,44 @@
 .form {
-  width: 320px;
+  border: 3px solid gray;
+  border-radius: 10px;
+  padding: 15px;
+  width: 400px;
 }
 
-.label {
+.formWrap {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  width: 350px;
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.fieldInput {
+  border: 3px solid gray;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.button {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid grey; /* Колір рамки кнопки */
+  color: coral; /* Колір тексту кнопки */
+  border-radius: 15px; /* Закруглені кути */
+  transition: background-color 0.3s ease; /* Плавна зміна колірного фону при наведенні */
+}
+
+.error {
+  font-size: 14px;
+  color: orangered;
 }

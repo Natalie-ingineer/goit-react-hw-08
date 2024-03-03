@@ -20,21 +20,21 @@ const contactsSlice = createSlice({
       { id: "id-3", name: "Eden Clements", number: "645-17-79" },
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
-    loading: false,
+    isLoading: false,
     error: null,
   },
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, handlePending)
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
         state.items = [...state.items, ...action.payload];
       })
       .addCase(fetchContacts.rejected, handleRejected)
       .addCase(addContact.pending, handlePending)
       .addCase(addContact.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
 
         // state.items = [...action.payload];
@@ -45,7 +45,7 @@ const contactsSlice = createSlice({
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
           (item) => item.id === action.payload.id
@@ -55,7 +55,7 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, handleRejected)
       .addCase(logOut.fulfilled, (state) => {
         state.items = [];
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
       }),
 });
