@@ -9,14 +9,14 @@ import {
 
 export default function ContactList() {
   const dispatch = useDispatch();
-  // const contactsFilter = useSelector(selectVisibleContacts);
+  const contactsFilter = useSelector(selectVisibleContacts);
   // console.log(contactsFilter);
 
-  const contacts = useSelector(selectContacts);
+  // const contacts = useSelector(selectContacts);
 
   return (
     <ul className={css.listContacts}>
-      {contacts.map((contact) => (
+      {contactsFilter.map((contact) => (
         <Contact
           key={contact.id}
           userId={contact.id}
