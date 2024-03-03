@@ -22,7 +22,7 @@ export default function SearchBox() {
         type="text"
         value={(filterName, filterNumber)}
         onChange={(e) => {
-          dispatch(nameFilter || numberFilter(e.target.value));
+          dispatch(nameFilter(e.target.value) || numberFilter(e.target.value));
         }}
         id={usernameFieldIdsearch}
       />
