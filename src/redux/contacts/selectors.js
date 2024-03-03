@@ -2,29 +2,24 @@ import { createSelector } from "@reduxjs/toolkit";
 
 export const selectContacts = (state) => state.contacts.items;
 
-export const selectLoading = (state) => state.contacts.loading;
+export const selectLoading = (state) => state.contacts.isloading;
 
 export const selectError = (state) => state.contacts.error;
 
-export const selectStatusFilter = (state) => state.filters.filters.name;
+export const selectFilterName = (state) => state.filters.filters.name;
 
-// export const selectVisibleContacts = createSelector(
-//   [selectContacts, selectStatusFilter],
-//   (contacts, filter) => {
-//     return contacts.filter((contact) =>
-//       contact.name.toLowerCase().includes(filter.toLowerCase())
-//     );
-//   }
-// );
+export const selectFilterNumber = (state) => state.filters.filters.number;
 
 export const selectVisibleContacts = createSelector(
-  [selectContacts, selectStatusFilter],
-  (contacts, filter) => {
-    if (!filter) {
-      return contacts; // Повертаємо всі контакти, якщо фільтр не визначений
-    }
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+  [selectContacts, selectFilterName, selectFilterNumber],
+  (contacts, filterName, filterNumber) => {
+    console.log(filterName);
+    contacts.filter((contact) => {
+      const NameFiltered = contact.name
+        .toLowerCase()
+        .includes(filterName.toLowerCase());
+      const NumberFiltered = contact.number.includes(filterNumber);
+      return NameFiltered || NumberFiltered;
+    });
   }
 );
