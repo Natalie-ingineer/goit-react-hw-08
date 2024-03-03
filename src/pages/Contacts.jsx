@@ -1,20 +1,15 @@
 import SearchBox from "../components/SearchBox/SearchBox";
 import ContactForm from "../components/ContactForm/ContactForm";
 import ContactList from "../components/ContactList/ContactList";
-import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
+
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../redux/contacts/operations";
-import {
-  selectContacts,
-  selectLoading,
-  selectError,
-} from "../redux/contacts/selectors";
+import { selectLoading, selectError } from "../redux/contacts/selectors";
+import DocumentTitle from "../components/DocumentTitle";
 
 export default function Contacts() {
   const dispatch = useDispatch();
-
-  const items = useSelector(selectContacts);
 
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
@@ -23,15 +18,9 @@ export default function Contacts() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   window.localStorage.setItem("users-phonebook", JSON.stringify([...items]));
-  // }, [items]);
-
   return (
     <>
-      <Helmet>
-        <title>Phonebook</title>
-      </Helmet>
+      <DocumentTitle>Phonebook</DocumentTitle>
 
       {loading && <p>Loading...</p>}
       {error && <p className="notification">Oops, ERROR 😨</p>}

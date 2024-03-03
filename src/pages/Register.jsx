@@ -1,12 +1,10 @@
-import { Helmet } from "react-helmet";
+import DocumentTitle from "../components/DocumentTitle";
 import { RegisterForm } from "../components/RegisterForm/RegisterForm";
 
 export default function Register() {
   return (
     <div>
-      <Helmet>
-        <title>Registration</title>
-      </Helmet>
+      <DocumentTitle>Registration</DocumentTitle>
       <RegisterForm />
     </div>
   );
