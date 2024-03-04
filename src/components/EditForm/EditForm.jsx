@@ -88,11 +88,26 @@ export default function EditForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const valueName = e.target.elements.name.value;
+    console.log(valueName);
     const valueNumber = e.target.elements.number.value;
+    console.log(valueNumber);
     const valueId = e.target.elements.id.value;
+    console.log(valueId);
 
-    dispatch(updateCurrentContact({ valueName, valueNumber, valueId }));
-    dispatch(addCurrentContact(null));
+    if (
+      valueName !== currentContactName ||
+      valueNumber !== currentContactNumber
+    ) {
+      dispatch(
+        updateCurrentContact({
+          name: valueName,
+          number: valueNumber,
+          id: valueId,
+        })
+      );
+    } else {
+      dispatch(addCurrentContact(null));
+    }
   };
 
   return (
