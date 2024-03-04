@@ -30,7 +30,7 @@ export default function EditForm() {
     const valueId = e.target.elements.id.value;
     console.log(valueId);
     dispatch(updateCurrentContact({ valueName, valueNumber, valueId }));
-    dispatch(addCurrentContact(null));
+    // dispatch(addCurrentContact(null));
   };
 
   return (
