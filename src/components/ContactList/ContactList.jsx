@@ -19,21 +19,6 @@ export default function ContactList() {
   const contactsFilter = useSelector(selectVisibleContacts);
 
   const isEdit = useSelector(selectCurrentContact);
-  // console.log(contactsFilter);
-
-  // const contacts = useSelector(selectContacts);
-
-  // const [contactCurrent, setContactCurrent] = useState({
-  //   name: "",
-  //   number: "",
-  // });
-
-  // const handleContactChange = (e) => {
-  //   // Отримати значення зміненого поля
-  //   setContactCurrent(e.target.value);
-  //   // Викликати операцію оновлення контакту
-  //   dispatch(updateContact(contactCurrent));
-  // };
 
   return (
     <>

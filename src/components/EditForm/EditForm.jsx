@@ -29,7 +29,6 @@ export default function EditForm() {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      {/* <> */}
       <input
         className={css.input}
         placeholder="What do you want to write?"
@@ -38,19 +37,7 @@ export default function EditForm() {
         defaultValue={currentContactName}
         autoFocus
       />
-      {/* <button className={css.submitButton} type="submit">
-          <RiSaveLine color="green" size="16px" />
-        </button>
 
-        <button
-          className={css.editButton}
-          type="button"
-          onClick={() => dispatch(addCurrentContact(null))}
-        >
-          <MdOutlineCancel color="red" size="16px" />
-        </button>
-      </> */}
-      {/* <> */}
       <input
         className={css.input}
         placeholder="What do you want to write?"
@@ -70,7 +57,6 @@ export default function EditForm() {
       >
         <MdOutlineCancel color="red" size="16px" />
       </button>
-      {/* </> */}
     </form>
   );
 }
