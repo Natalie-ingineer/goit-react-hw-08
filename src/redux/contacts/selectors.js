@@ -10,6 +10,8 @@ export const selectFilterName = (state) => state.filters.filters.name;
 
 export const selectFilterNumber = (state) => state.filters.filters.number;
 
+export const selectCurrentContact = (state) => state.contacts.currentContact;
+
 // export const selectVisibleContacts = createSelector(
 //   [selectContacts, selectFilterName, selectFilterNumber],
 //   (contacts, filterName, filterNumber) => {

@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   addContact,
+  addCurrentContact,
   deleteContact,
   fetchContacts,
-  updateContact,
+  updateCurrentContact,
+  // updateContact,
 } from "./operations";
 import { logOut } from "../auth/operations";
 
@@ -25,6 +27,7 @@ const contactsSlice = createSlice({
       { id: "id-3", name: "Eden Clements", number: "645-17-79" },
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
+    currentContact: null,
     isLoading: false,
     error: null,
   },
@@ -58,16 +61,40 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteContact.rejected, handleRejected)
-      .addCase(updateContact.pending, handlePending)
-      .addCase(updateContact.fulfilled, (state, action) => {
+      .addCase(addCurrentContact.pending, handlePending)
+      .addCase(addCurrentContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.items.findIndex(
-          (task) => task.id === action.payload.id
-        );
-        state.items.splice(index, 1, action.payload);
+        state.currentContact = action.payload;
       })
-      .addCase(updateContact.rejected, handleRejected)
+      .addCase(addCurrentContact.rejected, handleRejected)
+      .addCase(updateCurrentContact.pending, handlePending)
+      .addCase(updateCurrentContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = state.items.map((item) => {
+          return item.id === state.currentContact.id
+            ? {
+                name: action.payload,
+                number: action.payload,
+                id: state.currentContact.id,
+              }
+            : item;
+        });
+      })
+      .addCase(updateCurrentContact.rejected, handleRejected)
+      // .addCase(updateContact.pending, handlePending)
+      // .addCase(updateContact.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = null;
+      //   state.items.map((item) => {
+      //     if (item.id === action.payload.id) {
+      //       item.name = action.payload.name;
+      //       item.number = action.payload.number;
+      //     }
+      //   });
+      // })
+      // .addCase(updateContact.rejected, handleRejected)
       .addCase(logOut.fulfilled, (state) => {
         state.items = [];
         state.isLoading = false;
