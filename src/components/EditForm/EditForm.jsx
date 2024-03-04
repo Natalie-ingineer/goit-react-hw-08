@@ -19,11 +19,11 @@ export default function EditForm() {
   console.log(currentContactNumber);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const valueName = e.target.elements.name.value;
-    const valueNumber = e.target.elements.number.value;
-    dispatch(updateCurrentContact(valueName && valueNumber));
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const valueName = e.target.elements.name.value;
+        const valueNumber = e.target.elements.number.value;
+        dispatch(updateCurrentContact({ valueName && valueNumber}));
     dispatch(addCurrentContact(null));
   };
 
