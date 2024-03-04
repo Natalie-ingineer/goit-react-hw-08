@@ -19,22 +19,16 @@ export default function EditForm() {
   console.log(currentContactNumber);
   const dispatch = useDispatch();
 
-  const handleSubmitName = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const valueName = e.target.elements.name.value;
-    dispatch(updateCurrentContact(valueName));
-    dispatch(addCurrentContact(null));
-  };
-
-  const handleSubmitNumber = (e) => {
-    e.preventDefault();
     const valueNumber = e.target.elements.number.value;
-    dispatch(updateCurrentContact(valueNumber));
+    dispatch(updateCurrentContact(valueName && valueNumber));
     dispatch(addCurrentContact(null));
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmitName}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         className={css.input}
         placeholder="What do you want to write?"
@@ -46,7 +40,7 @@ export default function EditForm() {
 
       <input
         className={css.input}
-        onSubmit={handleSubmitNumber}
+        onSubmit={handleSubmit}
         placeholder="What do you want to write?"
         name="number"
         required
