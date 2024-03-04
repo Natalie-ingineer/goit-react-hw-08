@@ -35,7 +35,7 @@ export default function EditForm() {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
+    <form className={css.form} onChange={handleSubmit}>
       <input
         className={css.input}
         placeholder="What do you want to write?"
@@ -47,7 +47,7 @@ export default function EditForm() {
 
       <input
         className={css.input}
-        onSubmit={handleSubmit}
+        onChange={handleSubmit}
         placeholder="What do you want to write?"
         name="number"
         required
