@@ -82,18 +82,7 @@ const contactsSlice = createSlice({
         });
       })
       .addCase(updateCurrentContact.rejected, handleRejected)
-      // .addCase(updateContact.pending, handlePending)
-      // .addCase(updateContact.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   state.items.map((item) => {
-      //     if (item.id === action.payload.id) {
-      //       item.name = action.payload.name;
-      //       item.number = action.payload.number;
-      //     }
-      //   });
-      // })
-      // .addCase(updateContact.rejected, handleRejected)
+
       .addCase(logOut.fulfilled, (state) => {
         state.items = [];
         state.isLoading = false;
