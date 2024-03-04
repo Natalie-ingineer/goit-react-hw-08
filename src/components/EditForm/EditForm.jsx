@@ -1,12 +1,10 @@
 import css from "./EditForm.module.css";
 import { RiSaveLine } from "react-icons/ri";
 import { MdOutlineCancel } from "react-icons/md";
-import {
-  addCurrentContact,
-  updateCurrentContact,
-} from "../../redux/contacts/operations";
+import { updateCurrentContact } from "../../redux/contacts/operations";
 // import { selectCurrentContact } from "../../redux/contacts/selectors";
 import { useDispatch, useSelector } from "react-redux";
+import { addCurrentContact } from "../../redux/contacts/contactSlice";
 
 export default function EditForm() {
   const currentContactName = useSelector(
@@ -30,6 +28,7 @@ export default function EditForm() {
     const valueName = e.target.elements.name.value;
     const valueNumber = e.target.elements.number.value;
     const valueId = e.target.elements.id.value;
+    console.log(valueId);
     dispatch(updateCurrentContact({ valueName, valueNumber, valueId }));
     dispatch(addCurrentContact(null));
   };

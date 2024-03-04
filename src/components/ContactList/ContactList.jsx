@@ -1,17 +1,13 @@
 import css from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addCurrentContact,
-  deleteContact,
-  // updateContact,
-} from "../../redux/contacts/operations";
+import { deleteContact } from "../../redux/contacts/operations";
 import {
   selectCurrentContact,
-  // selectContacts,
   selectVisibleContacts,
 } from "../../redux/contacts/selectors";
 import EditForm from "../EditForm/EditForm";
+import { addCurrentContact } from "../../redux/contacts/contactSlice";
 // import { useState } from "react";
 
 export default function ContactList() {
