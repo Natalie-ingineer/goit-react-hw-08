@@ -19,20 +19,26 @@ export default function EditForm() {
   console.log(currentContactNumber);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmitName = (e) => {
     e.preventDefault();
     const valueName = e.target.elements.name.value;
+    dispatch(updateCurrentContact(valueName));
+    dispatch(addCurrentContact(null));
+  };
+
+  const handleSubmitNumber = (e) => {
+    e.preventDefault();
     const valueNumber = e.target.elements.number.value;
-    dispatch(updateCurrentContact(valueName && valueNumber));
+    dispatch(updateCurrentContact(valueNumber));
     dispatch(addCurrentContact(null));
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmitName}>
       <input
         className={css.input}
         placeholder="What do you want to write?"
-        name="text"
+        name="name"
         required
         defaultValue={currentContactName}
         autoFocus
@@ -40,8 +46,9 @@ export default function EditForm() {
 
       <input
         className={css.input}
+        onSubmit={handleSubmitNumber}
         placeholder="What do you want to write?"
-        name="text"
+        name="number"
         required
         defaultValue={currentContactNumber}
         autoFocus
