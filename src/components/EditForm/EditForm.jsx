@@ -17,13 +17,20 @@ export default function EditForm() {
     (state) => state.contacts.currentContact.number
   );
   console.log(currentContactNumber);
+
+  const currentContactId = useSelector(
+    (state) => state.contacts.currentContact.id
+  );
+  console.log(currentContactId);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const valueName = e.target.elements.name.value;
     const valueNumber = e.target.elements.number.value;
-    dispatch(updateCurrentContact({ valueName, valueNumber }));
+    const valueId = e.target.elements.id.value;
+    dispatch(updateCurrentContact({ valueName, valueNumber, valueId }));
     dispatch(addCurrentContact(null));
   };
 
