@@ -6,6 +6,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "azure",
   },
   title: {
     fontWeight: 500,
@@ -20,9 +21,9 @@ export default function Home() {
       <DocumentTitle>Home</DocumentTitle>
       <div style={styles.container}>
         <h1 style={styles.title}>
-          Phonebook manager welcome page{" "}
+          My Phonebook{" "}
           <span role="img" aria-label="Greeting icon">
-            💁‍♀️
+            ☎️
           </span>
         </h1>
       </div>
