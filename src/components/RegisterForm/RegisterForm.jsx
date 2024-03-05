@@ -5,6 +5,7 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import css from "./RegisterForm.module.css";
+import Button from "@mui/material/Button";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -36,50 +37,54 @@ export const RegisterForm = () => {
       }}
     >
       <Form className={css.form}>
-        <div className={css.formWrap}>
-          <label className={css.description} htmlFor={usernameFieldId}>
-            Username
-          </label>
-          <Field
-            className={css.fieldInput}
-            type="text"
-            name="name"
-            id={usernameFieldId}
-          ></Field>
-          <ErrorMessage className={css.error} name="name" component="span" />
+        <div className={css.wraper}>
+          <div className={css.formWrap}>
+            <label className={css.description} htmlFor={usernameFieldId}>
+              Username
+            </label>
+            <Field
+              className={css.fieldInput}
+              type="text"
+              name="name"
+              id={usernameFieldId}
+              placeholder="Please, write your name!"
+            ></Field>
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div className={css.formWrap}>
+            <label className={css.description} htmlFor={emailFieldId}>
+              Email
+            </label>
+            <Field
+              className={css.fieldInput}
+              type="email"
+              name="email"
+              id={emailFieldId}
+              placeholder="Please, write your email!"
+            ></Field>
+            <ErrorMessage className={css.error} name="email" component="span" />
+          </div>
+          <div className={css.formWrap}>
+            <label className={css.description} htmlFor={passwordFieldId}>
+              Password
+            </label>
+            <Field
+              className={css.fieldInput}
+              type="password"
+              name="password"
+              id={passwordFieldId}
+              placeholder="Please, write your password!"
+            ></Field>
+            <ErrorMessage
+              className={css.error}
+              name="password"
+              component="span"
+            />
+          </div>
         </div>
-        <div className={css.formWrap}>
-          <label className={css.description} htmlFor={emailFieldId}>
-            Email
-          </label>
-          <Field
-            className={css.fieldInput}
-            type="email"
-            name="email"
-            id={emailFieldId}
-          ></Field>
-          <ErrorMessage className={css.error} name="email" component="span" />
-        </div>
-        <div className={css.formWrap}>
-          <label className={css.description} htmlFor={passwordFieldId}>
-            Password
-          </label>
-          <Field
-            className={css.fieldInput}
-            type="password"
-            name="password"
-            id={passwordFieldId}
-          ></Field>
-          <ErrorMessage
-            className={css.error}
-            name="password"
-            component="span"
-          />
-        </div>
-
-        <button className={css.button} type="submit">
+        <Button variant="outlined" type="submit" className={css.btn}>
           Register
-        </button>
+        </Button>
       </Form>
     </Formik>
   );
