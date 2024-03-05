@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
+import toast from "react-hot-toast";
 
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
@@ -33,7 +34,15 @@ export const RegisterForm = () => {
       onSubmit={(values) => {
         // same shape as initial values
         dispatch(register(values));
-        console.log(values);
+        console
+          .log(values)
+          .unwrap()
+          .then(() => {
+            toast.success("login success");
+          })
+          .catch(() => {
+            toast.error("login error");
+          });
       }}
     >
       <Form className={css.form}>
