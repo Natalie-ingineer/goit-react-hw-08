@@ -71,14 +71,17 @@ const contactsSlice = createSlice({
       .addCase(updateCurrentContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        // state.items = state.items.map((item) => {
+        //   return item.id === state.currentContact.id
+        //     ? {
+        //         name: action.payload,
+        //         number: action.payload,
+        //         id: state.currentContact.id,
+        //       }
+        //     : item;
+        // });
         state.items = state.items.map((item) => {
-          return item.id === state.currentContact.id
-            ? {
-                name: action.payload,
-                number: action.payload,
-                id: state.currentContact.id,
-              }
-            : item;
+          return item.id === action.payload.id ? action.payload : item;
         });
       })
       .addCase(updateCurrentContact.rejected, handleRejected)

@@ -181,7 +181,7 @@ export default function EditForm() {
         updateCurrentContact({
           name: valueName,
           number: valueNumber,
-          id: valueId,
+          contactId: valueId,
         })
       );
     } else {

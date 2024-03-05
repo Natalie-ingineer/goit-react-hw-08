@@ -3,7 +3,7 @@ import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import {
-  selectCurrentContact,
+  // selectCurrentContact,
   selectVisibleContacts,
 } from "../../redux/contacts/selectors";
 import EditForm from "../EditForm/EditForm";
@@ -14,7 +14,8 @@ export default function ContactList() {
   const dispatch = useDispatch();
   const contactsFilter = useSelector(selectVisibleContacts);
 
-  const isEdit = useSelector(selectCurrentContact);
+  const isEdit = useSelector((state) => state.contacts.currentContact);
+  console.log(isEdit);
 
   return (
     <>

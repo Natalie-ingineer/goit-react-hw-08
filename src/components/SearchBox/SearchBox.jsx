@@ -9,10 +9,17 @@ export default function SearchBox() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  // const handleSearchChange = (e) => {
+  //   setSearchTerm(e.target.value);
+  //   dispatch(nameFilter(e.target.value));
+  //   dispatch(numberFilter(e.target.value));
+  // };
+
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    dispatch(nameFilter(e.target.value));
-    dispatch(numberFilter(e.target.value));
+    const searchTerm = e.target.value;
+    setSearchTerm(searchTerm);
+    dispatch(nameFilter(searchTerm)); // Фільтрувати за ім'ям
+    dispatch(numberFilter(searchTerm)); // Фільтрувати за номером
   };
 
   return (
