@@ -2,6 +2,7 @@ import css from "./SearchBox.module.css";
 import { useId, useState } from "react";
 import { nameFilter, numberFilter } from "../../redux/contacts/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
+import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 
 export default function SearchBox() {
   const usernameFieldIdsearch = useId();
@@ -25,13 +26,13 @@ export default function SearchBox() {
   return (
     <div className={css.btnWrap}>
       <label className={css.description} htmlFor={usernameFieldIdsearch}>
-        Find contacts by name
+        <PersonSearchIcon color="primary" />
       </label>
       <input
         type="text"
         value={searchTerm}
         onChange={handleSearchChange}
-        placeholder="Search by name and number"
+        placeholder="Search by name or number"
         id={usernameFieldIdsearch}
       />
     </div>

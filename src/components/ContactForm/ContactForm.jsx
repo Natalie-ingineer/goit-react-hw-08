@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { selectContacts } from "../../redux/contacts/selectors";
 import toast from "react-hot-toast";
+import AddIcCallIcon from "@mui/icons-material/AddIcCall";
+import { Button } from "@mui/material";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -43,7 +45,7 @@ export default function ContactForm() {
         <div className={css.wraper}>
           <div className={css.formWrap}>
             <label className={css.description} htmlFor={usernameFieldId}>
-              Username
+              Name contact
             </label>
             <Field
               className={css.fieldInput}
@@ -56,7 +58,7 @@ export default function ContactForm() {
           </div>
           <div className={css.formWrap}>
             <label className={css.description} htmlFor={numberFieldId}>
-              Number
+              Phone number
             </label>
             <Field
               className={css.fieldInput}
@@ -73,9 +75,9 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <button className={css.button} type="submit">
-          Add user
-        </button>
+        <Button variant="outlined" type="submit">
+          <AddIcCallIcon />
+        </Button>
 
         {/* <Button variant="outlined" type="submit" className={css.btn}>
           Register

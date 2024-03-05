@@ -1,18 +1,21 @@
 .btnWrap {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 270px;
+  margin: 0 auto;
 }
 
 .description {
   margin-top: 20px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  /* color: darkblue; */
+  font-weight: 200;
+  text-align: center;
 }
 
 input {
-  border: 3px solid gray;
+  border: 1px solid gray;
   border-radius: 10px;
   padding: 5px;
-  margin-left: 10px;
+  margin-left: 0px;
 }

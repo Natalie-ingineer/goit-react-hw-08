@@ -26,8 +26,8 @@ export default function Contacts() {
       {error && <p className="notification">Oops, ERROR 😨</p>}
 
       <>
-        <ContactForm />
         <SearchBox />
+        <ContactForm />
         <ContactList />
       </>
     </>
