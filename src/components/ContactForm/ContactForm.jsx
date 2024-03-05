@@ -6,6 +6,7 @@ import css from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { selectContacts } from "../../redux/contacts/selectors";
+import toast from "react-hot-toast";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -27,38 +28,58 @@ export default function ContactForm() {
       initialValues={{ name: "", number: "" }}
       validationSchema={userSchema}
       onSubmit={(contacts, actions) => {
-        dispatch(addContact({ ...contacts }));
+        dispatch(addContact({ ...contacts }))
+          .unwrap()
+          .then(() => {
+            toast.success("New contact add success");
+          })
+          .catch(() => {
+            toast.error("New contact don't add");
+          });
         actions.resetForm();
       }}
     >
       <Form className={css.form}>
-        <div className={css.formWrap}>
-          <label className={css.description} htmlFor={usernameFieldId}>
-            Username
-          </label>
-          <Field
-            className={css.fieldInput}
-            type="text"
-            name="name"
-            id={usernameFieldId}
-          ></Field>
-          <ErrorMessage className={css.error} name="name" component="span" />
+        <div className={css.wraper}>
+          <div className={css.formWrap}>
+            <label className={css.description} htmlFor={usernameFieldId}>
+              Username
+            </label>
+            <Field
+              className={css.fieldInput}
+              type="text"
+              name="name"
+              id={usernameFieldId}
+              placeholder="Please, write name new contact!"
+            ></Field>
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div className={css.formWrap}>
+            <label className={css.description} htmlFor={numberFieldId}>
+              Number
+            </label>
+            <Field
+              className={css.fieldInput}
+              type="number"
+              name="number"
+              id={numberFieldId}
+              placeholder="Please, write phone number new contact!"
+            ></Field>
+            <ErrorMessage
+              className={css.error}
+              name="number"
+              component="span"
+            />
+          </div>
         </div>
-        <div className={css.formWrap}>
-          <label className={css.description} htmlFor={numberFieldId}>
-            Number
-          </label>
-          <Field
-            className={css.fieldInput}
-            type="number"
-            name="number"
-            id={numberFieldId}
-          ></Field>
-          <ErrorMessage className={css.error} name="number" component="span" />
-        </div>
+
         <button className={css.button} type="submit">
           Add user
         </button>
+
+        {/* <Button variant="outlined" type="submit" className={css.btn}>
+          Register
+        </Button> */}
       </Form>
     </Formik>
   );
