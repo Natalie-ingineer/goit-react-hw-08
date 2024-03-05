@@ -8,6 +8,8 @@ import { addContact } from "../../redux/contacts/operations";
 import { selectContacts } from "../../redux/contacts/selectors";
 import toast from "react-hot-toast";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
+
+// import FaceIcon from "@mui/icons-material/Face";
 import { Button } from "@mui/material";
 
 const userSchema = Yup.object().shape({
@@ -47,6 +49,7 @@ export default function ContactForm() {
             <label className={css.description} htmlFor={usernameFieldId}>
               Name contact
             </label>
+
             <Field
               className={css.fieldInput}
               type="text"

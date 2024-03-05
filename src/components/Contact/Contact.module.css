@@ -1,45 +1,53 @@
-.wraper {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 250px;
-  border: 3px solid coral;
-  border-radius: 15px;
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-.userName,
-.userPhone {
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-}
-
 .infoWrap {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  padding: 5px;
+  background-color: var(--color-light);
+  border-radius: 8px;
+
+  color: var(--color-gray);
+  box-shadow: var(--shadow-regular);
+
+  position: relative;
+  width: 200px;
+  height: 200px;
 }
 
 .button {
-  display: inline-block;
-  padding: 5px 15px;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 2px solid grey; /* Колір рамки кнопки */
-  color: coral; /* Колір тексту кнопки */
-  border-radius: 15px; /* Закруглені кути */
-  transition: background-color 0.3s ease; /* Плавна зміна колірного фону при наведенні */
+  position: absolute;
+  border-radius: 20%;
+  border-color: aliceblue;
+  right: 0;
+  color: lightgreen;
+  /* padding: 20px; */
+  transition: transform var(--animation-cubicBezier);
+}
+.button:hover,
+.button:focus {
+  transform: scale(1.05);
 }
 
-.icon {
-  fill: coral;
-  margin-right: 5px;
+.button:disabled {
+  color: var(--color-gray);
+  pointer-events: none;
+}
+
+.deleteButton {
+  composes: button;
+  top: 10px;
+  right: 10px;
+  color: var(--color-red);
+}
+
+.editButton {
+  composes: button;
+  bottom: 10px;
+  right: 10px;
+  /* color: var(--color-lightBlue); */
 }

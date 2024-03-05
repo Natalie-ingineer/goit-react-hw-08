@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 270px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .description {
