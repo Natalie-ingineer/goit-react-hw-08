@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../redux/contacts/operations";
 import { selectLoading, selectError } from "../redux/contacts/selectors";
 import DocumentTitle from "../components/DocumentTitle";
+import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
+import { Loader } from "../components/Loader/Loader";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -22,8 +24,8 @@ export default function Contacts() {
     <>
       <DocumentTitle>Phonebook</DocumentTitle>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="notification">Oops, ERROR 😨</p>}
+      {error && <ErrorMessage />}
+      {loading && <Loader />}
 
       <>
         <SearchBox />

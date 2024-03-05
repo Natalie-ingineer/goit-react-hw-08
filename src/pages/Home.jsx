@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
 import DocumentTitle from "../components/DocumentTitle";
+import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
+import { Loader } from "../components/Loader/Loader";
+import { selectError, selectLoading } from "../redux/contacts/selectors";
 
 const styles = {
   container: {
@@ -16,16 +20,16 @@ const styles = {
 };
 
 export default function Home() {
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+
   return (
     <>
+      {error && <ErrorMessage />}
+      {loading && <Loader />}
       <DocumentTitle>Home</DocumentTitle>
       <div style={styles.container}>
-        <h1 style={styles.title}>
-          My Phonebook
-          {/* <span role="img" aria-label="Greeting icon" size="25">
-            ☎️
-          </span> */}
-        </h1>
+        <h1 style={styles.title}>My Phonebook</h1>
       </div>
     </>
   );
