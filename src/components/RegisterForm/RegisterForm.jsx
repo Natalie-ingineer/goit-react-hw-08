@@ -33,15 +33,13 @@ export const RegisterForm = () => {
       validationSchema={userSchema}
       onSubmit={(values) => {
         // same shape as initial values
-        dispatch(register(values));
-        console
-          .log(values)
+        dispatch(register(values))
           .unwrap()
           .then(() => {
-            toast.success("login success");
+            toast.success("Registration is successful!");
           })
           .catch(() => {
-            toast.error("login error");
+            toast.error("Registration is failed!");
           });
       }}
     >

@@ -8,6 +8,7 @@ import {
 } from "../../redux/contacts/selectors";
 import EditForm from "../EditForm/EditForm";
 import { addCurrentContact } from "../../redux/contacts/contactSlice";
+import toast from "react-hot-toast";
 // import { useState } from "react";
 
 export default function ContactList() {
@@ -28,7 +29,14 @@ export default function ContactList() {
             contact={contact.name}
             phonenumber={contact.number}
             onDelete={() => {
-              dispatch(deleteContact(contact.id));
+              dispatch(deleteContact(contact.id))
+                .unwrap()
+                .then(() => {
+                  toast.success("Contact delete");
+                })
+                .catch(() => {
+                  toast.error("Contact undelete");
+                });
             }}
             onClick={() => dispatch(addCurrentContact(contact))}
             // onChange={handleContactChange}

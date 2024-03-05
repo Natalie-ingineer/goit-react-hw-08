@@ -40,6 +40,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { updateCurrentContact } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { addCurrentContact } from "../../redux/contacts/contactSlice";
+import toast from "react-hot-toast";
 
 export default function EditForm() {
   const currentContactName = useSelector(
@@ -71,7 +72,14 @@ export default function EditForm() {
         number: valueNumber,
         contactId: valueId,
       })
-    );
+    )
+      .unwrap()
+      .then(() => {
+        toast.success("Contact update!");
+      })
+      .catch(() => {
+        toast.error("Contact don't update!");
+      });
 
     dispatch(addCurrentContact(null));
   };
