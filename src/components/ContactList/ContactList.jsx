@@ -12,7 +12,6 @@ export default function ContactList() {
   const contactsFilter = useSelector(selectVisibleContacts);
 
   const isEdit = useSelector((state) => state.contacts.currentContact);
-  console.log(isEdit);
 
   return (
     <>

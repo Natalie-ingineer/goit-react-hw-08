@@ -24,11 +24,10 @@ export default function EditForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const valueName = e.target.elements.name.value;
-    console.log(valueName);
+
     const valueNumber = e.target.elements.number.value;
-    console.log(valueNumber);
+
     const valueId = e.target.elements.id.value;
-    console.log(valueId);
 
     dispatch(
       updateCurrentContact({
