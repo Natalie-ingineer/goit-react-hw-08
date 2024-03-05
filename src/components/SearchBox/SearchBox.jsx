@@ -1,7 +1,7 @@
 import css from "./SearchBox.module.css";
 import { useId, useState } from "react";
 import { nameFilter, numberFilter } from "../../redux/contacts/filterSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 
 export default function SearchBox() {
@@ -9,12 +9,6 @@ export default function SearchBox() {
   const dispatch = useDispatch();
 
   const [searchTerm, setSearchTerm] = useState("");
-
-  // const handleSearchChange = (e) => {
-  //   setSearchTerm(e.target.value);
-  //   dispatch(nameFilter(e.target.value));
-  //   dispatch(numberFilter(e.target.value));
-  // };
 
   const handleSearchChange = (e) => {
     const searchTerm = e.target.value;

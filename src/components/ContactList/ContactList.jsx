@@ -2,14 +2,10 @@ import css from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
-import {
-  // selectCurrentContact,
-  selectVisibleContacts,
-} from "../../redux/contacts/selectors";
+import { selectVisibleContacts } from "../../redux/contacts/selectors";
 import EditForm from "../EditForm/EditForm";
 import { addCurrentContact } from "../../redux/contacts/contactSlice";
 import toast from "react-hot-toast";
-// import { useState } from "react";
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -39,7 +35,6 @@ export default function ContactList() {
                 });
             }}
             onClick={() => dispatch(addCurrentContact(contact))}
-            // onChange={handleContactChange}
           ></Contact>
         ))}
       </ul>

@@ -28,7 +28,6 @@ const rootReduser = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReduser);
-// generateDefaultContacts();
 
 export const store = configureStore({
   reducer: persistedReducer,

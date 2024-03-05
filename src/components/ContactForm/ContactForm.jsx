@@ -80,10 +80,6 @@ export default function ContactForm() {
         <Button variant="outlined" type="submit">
           <AddIcCallIcon />
         </Button>
-
-        {/* <Button variant="outlined" type="submit" className={css.btn}>
-          Register
-        </Button> */}
       </Form>
     </Formik>
   );
