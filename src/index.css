@@ -35,6 +35,10 @@ body {
 body {
   padding: 32px;
 }
+body p {
+  color: blue; /* Змінити колір тексту на синій */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

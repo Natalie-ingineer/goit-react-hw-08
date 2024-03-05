@@ -1,15 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import css from "./ContactForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-import { selectContacts } from "../../redux/contacts/selectors";
+
 import toast from "react-hot-toast";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 
-// import FaceIcon from "@mui/icons-material/Face";
 import { Button } from "@mui/material";
 
 const userSchema = Yup.object().shape({
