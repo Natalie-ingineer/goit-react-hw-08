@@ -12,7 +12,7 @@ export const UserMenu = () => {
     <div className={css.wrapper}>
       <p className={css.username}>Welcome, {user.name}</p>
       <Button
-        variant="contained"
+        variant="outlined"
         href="#contained-buttons"
         type="button"
         onClick={() => dispatch(logOut())}

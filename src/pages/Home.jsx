@@ -21,10 +21,10 @@ export default function Home() {
       <DocumentTitle>Home</DocumentTitle>
       <div style={styles.container}>
         <h1 style={styles.title}>
-          My Phonebook{" "}
-          <span role="img" aria-label="Greeting icon">
+          My Phonebook
+          {/* <span role="img" aria-label="Greeting icon" size="25">
             ☎️
-          </span>
+          </span> */}
         </h1>
       </div>
     </>

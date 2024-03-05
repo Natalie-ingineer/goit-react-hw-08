@@ -1,13 +1,11 @@
 .infoWrap {
   display: flex;
   flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
 }
 
 .box {
-  padding: 5px;
+  padding: 10px;
   background-color: var(--color-light);
   border-radius: 8px;
 
