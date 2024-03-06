@@ -19,7 +19,7 @@
 
   border-style: solid;
   border-bottom: 1px solid #212121;
-  background-color: transparent;
+  background-color: var(--color-white);
 
   padding: 5px;
   padding-left: 10px;
