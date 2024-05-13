@@ -16,7 +16,7 @@ const userSchema = Yup.object().shape({
     .min(3, "Name must be at least 3 symb long")
     .max(50, "Name to long")
     .required("Please, fill in the field!"),
-  number: Yup.number()
+  number: Yup.string()
     .min(0, "Number must be at least 3 symb long")
     .required("Please, fill in the field!"),
 });
@@ -64,7 +64,7 @@ export default function ContactForm() {
             </label>
             <Field
               className={css.fieldInput}
-              type="number"
+              type="text"
               name="number"
               id={numberFieldId}
               placeholder="Please, write phone number new contact!"

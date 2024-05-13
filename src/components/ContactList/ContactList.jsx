@@ -19,12 +19,12 @@ export default function ContactList() {
       <ul className={css.listContacts}>
         {contactsFilter.map((contact) => (
           <Contact
-            key={contact.id}
-            userId={contact.id}
+            key={contact._id}
+            userId={contact._id}
             contact={contact.name}
             phonenumber={contact.number}
             onDelete={() => {
-              dispatch(deleteContact(contact.id))
+              dispatch(deleteContact(contact._id))
                 .unwrap()
                 .then(() => {
                   toast.success("Contact delete");
