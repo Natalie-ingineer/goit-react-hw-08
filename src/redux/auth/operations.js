@@ -90,3 +90,15 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUserName = createAsyncThunk(
+  "auth/updateUserName",
+  async (name, thunkAPI) => {
+    try {
+      const res = await axios.patch("/users/name", name);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
